@@ -2,6 +2,7 @@
 
 window.addEventListener('load', function(){
     findDay();
+    strikeThrough();
 });
 
 function findDay()
@@ -14,4 +15,24 @@ function findDay()
     let dayOfWeekHMTL = document.getElementById("day-of-week");
     
     dayOfWeekHMTL.innerHTML = DAYS[dayOfWeek];
+}
+
+function strikeThrough()
+{
+    let taskHTML = document.querySelectorAll(".main-content-container");
+
+    for(let i = 0; i < taskHTML.length; i++)
+    {
+        taskHTML[i].addEventListener('click', function()
+        {
+            if(taskHTML[i].style.textDecoration === "line-through")
+            {
+                taskHTML[i].style.textDecoration = "none";
+            }
+            else
+            {
+                taskHTML[i].style.textDecoration = "line-through";
+            } 
+        })
+    };
 }
